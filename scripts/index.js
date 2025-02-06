@@ -30,3 +30,21 @@ function loadCards(initialCards) {
   });
 }
 loadCards(initialCards);
+
+// попап
+const popap = document.querySelector('.popap');
+const popapOpenButton = document.querySelector('.profile__add-button')
+const popapCloseButton = document.querySelector('.popup__close');
+
+// открытие попапов
+
+popapOpenButton.addEventListener('click', function(){
+  popap.style.display = 'block'
+})
+
+// закрытие попапов
+
+function closePopap(){
+
+}
+
