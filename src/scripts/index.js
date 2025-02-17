@@ -32,14 +32,17 @@ buttonEditProfile.addEventListener('click', function(){
 })
 
 buttonProfileAdd.addEventListener('click', function(){
+  nameInput.value = profileTitle.textContent;
+  jobInput.value = profileDescription.textContent;
   openPopup(popupNewCard);
 })
 
 //Открытие попапа с картинкой
 function openImage(cardData){
   popupImage.src = cardData.link;
-  popupImageCaptain.innerHTML = cardData.name;
-  popupTypeImage.classList.add('popup_is-opened');
+  popupImage.alt = cardData.name;
+  popupImageCaptain.textContent = cardData.name;
+  openPopup(popupTypeImage);
 }
 
 // закрытие попапов
@@ -60,25 +63,24 @@ popupNewCard.addEventListener('click', closeOverlay);
 popupTypeImage.addEventListener('click', closeOverlay);
 
 //Редактирование имени и информации о себе
-const formElement = document.querySelector('[name=edit-profile]');
+const profileEditingForm = document.querySelector('[name=edit-profile]');
 const profileTitle = document.querySelector('.profile__title');
 const profileDescription = document.querySelector('.profile__description');
-const nameInput = formElement.querySelector('.popup__input_type_name');
-const jobInput = formElement.querySelector('.popup__input_type_description');
+const nameInput = profileEditingForm.querySelector('.popup__input_type_name');
+const jobInput = profileEditingForm.querySelector('.popup__input_type_description');
 
-nameInput.value = profileTitle.innerHTML;
-jobInput.value = profileDescription.innerHTML;
-
-function handleFormSubmit(evt) {
+nameInput.value = profileTitle.textContent;
+jobInput.value = profileDescription.textContent;
+function handleFormSubmitProfile(evt) {
     evt.preventDefault();
     const name = nameInput.value;
     const job = jobInput.value;
-    profileTitle.innerHTML = name;
-    profileDescription.innerHTML = job;
+    profileTitle.textContent = name;
+    profileDescription.textContent = job;
     closePopup(popupTypeEdit);
 }
 
-formElement.addEventListener('submit', handleFormSubmit);
+profileEditingForm.addEventListener('submit', handleFormSubmitProfile);
 
 //Добавление карточки
 const newPlace = document.querySelector('[name=new-place]');
