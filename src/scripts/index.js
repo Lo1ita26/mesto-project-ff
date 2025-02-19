@@ -28,12 +28,12 @@ const popupImage = document.querySelector('.popup__image'); //большая ф�
 const popupImageCaptain = document.querySelector('.popup__caption'); //подпись к фотографии
 //открытие
 buttonEditProfile.addEventListener('click', function(){
+  nameInput.value = profileTitle.textContent;
+  jobInput.value = profileDescription.textContent;
   openPopup(popupTypeEdit);
 })
 
 buttonProfileAdd.addEventListener('click', function(){
-  nameInput.value = profileTitle.textContent;
-  jobInput.value = profileDescription.textContent;
   openPopup(popupNewCard);
 })
 
@@ -69,8 +69,6 @@ const profileDescription = document.querySelector('.profile__description');
 const nameInput = profileEditingForm.querySelector('.popup__input_type_name');
 const jobInput = profileEditingForm.querySelector('.popup__input_type_description');
 
-nameInput.value = profileTitle.textContent;
-jobInput.value = profileDescription.textContent;
 function handleFormSubmitProfile(evt) {
     evt.preventDefault();
     const name = nameInput.value;
