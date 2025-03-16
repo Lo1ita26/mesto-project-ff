@@ -1,12 +1,11 @@
-export {openPopup, closePopup, closeEsc, closeOverlay}
 // открытие попапов
-function openPopup(popupElement) {
+function openPopup(popupElement) { ///
     popupElement.classList.add('popup_is-opened');
     document.addEventListener('keydown', closeEsc);
    }
 
 // закрытие попапов
-function closePopup(popupElement) {
+function closePopup(popupElement, formElement, inputElement) {
     popupElement.classList.remove('popup_is-opened');
     document.removeEventListener('keydown', closeEsc);
   }
@@ -22,3 +21,5 @@ function closeOverlay(evt){
       closePopup(evt.currentTarget)
       }
   }
+
+  export {openPopup, closePopup, closeEsc, closeOverlay}

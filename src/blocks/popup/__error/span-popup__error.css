@@ -1,0 +1,14 @@
+.span-popup__error {
+    font-size: 12px;
+    color: #FF0000;
+    opacity: 0;
+}
+
+.form__input_type_error {
+    border-bottom-color: red;
+}
+
+.span-popup__active {
+    opacity: 1;
+    color: #FF0000;
+}

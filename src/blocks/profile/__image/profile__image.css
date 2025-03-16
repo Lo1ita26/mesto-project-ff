@@ -9,6 +9,30 @@
   margin: 0 29px 0 0;
 }
 
+.profile__image:hover {
+  opacity: 0.2;
+}
+
+.container-avatar {
+  position: relative;
+}
+
+.overImg {
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  position: absolute;
+  display: none;
+  top: 50%;
+  right: 50%;
+  transform: translateY(-50%);
+  z-index: 99999;
+}
+
+.container-avatar:hover .overImg {
+  display: block;
+}
+
 @media screen and (max-width: 740px) {
   .profile__image {
     margin: 0 10px 0 0;
