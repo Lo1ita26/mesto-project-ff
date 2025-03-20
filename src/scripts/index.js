@@ -95,7 +95,7 @@ function handleFormSubmitProfile(evt) {
   profileTitle.textContent = data.name;
   profileDescription.textContent = data.about;
 })
-.catch((err) => console.log(err))   /////добавила
+.catch((err) => console.log(err))
 .finally (() => {
   submitButton.textContent = buttonText;
 })
@@ -114,12 +114,11 @@ function updateAvatar(evt) {
   const submitButton = document.getElementById('avatar-btn');
   const buttonText = submitButton.textContent;
   submitButton.textContent = 'Сохранение...';
-  //document.getElementById('avatar-btn').textContent = 'Сохранение...';
   addAvatar(avatar)
   .then((data) => {
     profileAvatar.src = data.avatar;
 })
-.catch((err) => console.log(err))  /////добавила
+.catch((err) => console.log(err))
 .finally (() => {
   submitButton.textContent = buttonText;
 })
@@ -139,13 +138,12 @@ function handleFormCard(evt){
   const buttonText = submitButton.textContent;
   submitButton.textContent = 'Сохранение...';
   createNewCard(cardNameInput.value, cardLinkInput.value)
-  //document.getElementById('card-btn').textContent = 'Сохранение...';
   .then((cardData) => {
   const cardNode = createCard(cardData, likeCard, openImage, cardData.owner._id);
   placesList.prepend(cardNode);
   newPlace.reset()
 })
-  .catch((err) => console.log(err))   /////добавила
+  .catch((err) => console.log(err))
   .finally (() => {
     submitButton.textContent = buttonText;
 })
@@ -159,12 +157,9 @@ enableValidation ({
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__button',
   inactiveButtonClass: 'popup__button-disabled',
-  inputErrorClass: 'form__input_type_error', //'popup__input_type_error', //
-  errorClass: 'span-popup__active'//'popup__error_visible' //
+  inputErrorClass: 'form__input_type_error',
+  errorClass: 'span-popup__active'
 }); 
-
-//Валидация
-//enableValidation();
 
 //API
 Promise.all([getUserInformation(), getServerCards()])
@@ -174,6 +169,6 @@ Promise.all([getUserInformation(), getServerCards()])
   profileAvatar.src = userInformation.avatar
    loadCards(cards, userInformation._id);
 })
-.catch((err) => console.log(err));   /////добавила
+.catch((err) => console.log(err));
 
 

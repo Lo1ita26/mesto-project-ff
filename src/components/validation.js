@@ -1,14 +1,14 @@
 function showInputError (formElement, inputElement, errorMessage, config) {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.add(config.inputErrorClass); //'form__input_type_error');
+    inputElement.classList.add(config.inputErrorClass);
     errorElement.textContent = errorMessage;
-    errorElement.classList.add(config.errorClass); //'span-popup__active');
+    errorElement.classList.add(config.errorClass); 
   }
   
   function hideInputError (formElement, inputElement, config) {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.remove(config.inputErrorClass); //('form__input_type_error');
-    errorElement.classList.remove(config.errorClass); //('span-popup__active');
+    inputElement.classList.remove(config.inputErrorClass); 
+    errorElement.classList.remove(config.errorClass); 
     errorElement.textContent = '';
   }
   
@@ -25,9 +25,9 @@ function showInputError (formElement, inputElement, errorMessage, config) {
     }
   }
   
-  function setEventListeners (formElement, config) {  //добавила config
-    const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));// Array.from(formElement.querySelectorAll('.popup__input'));
-    const buttonElement = formElement.querySelector(config.submitButtonSelector) //formElement.querySelector('.popup__button')
+  function setEventListeners (formElement, config) {
+    const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
+    const buttonElement = formElement.querySelector(config.submitButtonSelector)
     toggleButtonState(inputList, buttonElement, config);
     inputList.forEach((inputElement) => {
      inputElement.addEventListener('input', function () {
@@ -46,10 +46,10 @@ function showInputError (formElement, inputElement, errorMessage, config) {
   function toggleButtonState (inputList, buttonElement, config) {
     if (hasInvalidInput(inputList)) {
       buttonElement.disabled = true;
-      buttonElement.classList.add(config.inactiveButtonClass); //('popup__button-disabled')
+      buttonElement.classList.add(config.inactiveButtonClass);
     } else {
       buttonElement.disabled = false;
-      buttonElement.classList.remove(config.inactiveButtonClass); //('popup__button-disabled');
+      buttonElement.classList.remove(config.inactiveButtonClass);
     }
     }
 
