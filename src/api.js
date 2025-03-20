@@ -1,8 +1,14 @@
 const PATH = 'https://nomoreparties.co/v1/wff-cohort-32';
 const token = 'f6b1df2e-a365-40f5-8bfa-e503f70570b9';
 const handleResponse = (result) => {
-    return result.json();
-  }
+    if (result.ok) {
+        return result.json();
+       }
+       return Promise.reject(`Ошибка: ${res.status}`);
+    };
+// const handleResponse = (result) => {
+//     return result.json();
+//   }
 
 // Загрузка информации о пользователе с сервера
 function getUserInformation () {
@@ -77,7 +83,6 @@ function addLike (cardId) {
          authorization: token,
          'Content-Type': 'application/json',
         },
-        
 })
 .then(handleResponse);
 }
