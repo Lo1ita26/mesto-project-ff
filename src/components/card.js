@@ -39,13 +39,19 @@ function createCard(cardData, likeCard, openImage, myId, removeCard) {
 // @todo: Функция удаления карточки
 function removeCard(card, cardId) {
   card.remove();
-  deleteCard(cardId);
+  deleteCard(cardId)
+    .then(() => card.remove())
+    .catch((err) => console.log(err));
 }
 
 //Лайк карточки
 function likeCard(evt, cardId, likes) {
   if (evt.target.classList.contains("card__like-button")) {
-    const likeMethod = evt.target.classList.contains("card__like-button_is-active") ? deleteLike : addLike;
+    const likeMethod = evt.target.classList.contains(
+      "card__like-button_is-active"
+    )
+      ? deleteLike
+      : addLike;
     likeMethod(cardId)
       .then((res) => {
         likes.textContent = res.likes.length;
